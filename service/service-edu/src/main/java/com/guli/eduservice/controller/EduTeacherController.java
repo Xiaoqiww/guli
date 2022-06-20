@@ -94,7 +94,6 @@ public class EduTeacherController {
     //添加讲师接口的方法
 
 
-
     //讲师新增功能
     @PostMapping("addTeacher")
     public Boolean addTeacher(@RequestBody EduTeacher eduTeacher) {
