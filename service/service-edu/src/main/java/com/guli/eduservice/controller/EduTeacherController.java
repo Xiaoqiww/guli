@@ -94,8 +94,6 @@ public class EduTeacherController {
     //添加讲师接口的方法
 
 
-    //根据讲师id进行查询
-
 
     //讲师新增功能
     @PostMapping("addTeacher")
