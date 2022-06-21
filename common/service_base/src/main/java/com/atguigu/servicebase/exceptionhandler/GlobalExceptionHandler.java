@@ -15,4 +15,11 @@ public class GlobalExceptionHandler {
         e.printStackTrace();
         return R.error().message("执行了全局异常处理..");
     }
+
+    @ExceptionHandler(GuliException.class)
+    @ResponseBody
+    public R error(GuliException e){
+        e.printStackTrace();
+        return R.error().message(e.getMsg()).code(e.getCode());
+    }
 }

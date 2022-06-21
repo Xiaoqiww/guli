@@ -23,19 +23,18 @@ import java.util.List;
  * @author testjava
  * @since 2020-02-24
  */
-@Api(description="讲师管理")
+@Api(value="讲师管理")
 @RestController
 @RequestMapping("/eduservice/teacher")
 public class EduTeacherController {
 
-    //访问地址： http://localhost:8001/eduservice/teacher/findAll
     //把service注入
 
    @Resource
     private EduTeacherService teacherService;
 
     //1 查询讲师表所有数据
-    //rest风格
+    //访问地址： http://localhost:8001/eduservice/teacher/findAll
     @GetMapping("findAll")
     public List<EduTeacher> selectAll(){
        return teacherService.list(null);
@@ -91,13 +90,26 @@ public class EduTeacherController {
         return R.ok().data("total",total).data("rows",records);
     }
 
-    //添加讲师接口的方法
-
+    //讲师更新功能
+    @PostMapping("update")
+    public R updateTeacher(@RequestBody EduTeacher teacher){
+        boolean b = teacherService.updateById(teacher);
+        if (b){
+            return R.ok();
+        }else {
+            return R.error();
+        }
+    }
 
     //讲师新增功能
     @PostMapping("addTeacher")
-    public Boolean addTeacher(@RequestBody EduTeacher eduTeacher) {
-        return teacherService.save(eduTeacher);
+    public R addTeacher(@RequestBody EduTeacher eduTeacher) {
+        boolean save = teacherService.save(eduTeacher);
+        if (save){
+            return R.ok();
+        }else {
+            return R.error();
+        }
     }
 }
 
