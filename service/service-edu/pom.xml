@@ -10,13 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service-edu</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.onlinestudy</groupId>
-            <artifactId>service_base</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 
 </project>
