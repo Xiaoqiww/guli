@@ -2,22 +2,23 @@ package com.guli.oss.controller;
 
 import com.atguigu.commonutils.R;
 import com.guli.oss.service.OssService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @RestController
 @RequestMapping("eduoss/fileoss")
 @CrossOrigin
-@EnableSwagger2
+@Api("头像上传")
 public class OssController {
     @Autowired
     OssService ossService;
 
-    public R upLoadOssFile(MultipartFile file) {
+    @ApiModelProperty(name = "上传头像")
+    @PostMapping
+    public R upLoadOssFile(@RequestParam MultipartFile file) {
         //获取上传文件
         //返回上传到oss的路径
         String url =ossService.upLoadFileAvatar(file);

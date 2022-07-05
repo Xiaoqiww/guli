@@ -23,7 +23,7 @@
         <guli.version>0.0.1-SNAPSHOT</guli.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <velocity.version>2.0</velocity.version>
-        <swagger.version>3.0.0</swagger.version>
+        <swagger.version>2.7.0</swagger.version>
         <aliyun.oss.version>3.10.2</aliyun.oss.version>
         <jodatime.version>2.10.1</jodatime.version>
         <poi.version>3.14</poi.version>
@@ -44,6 +44,7 @@
         <docker.image.prefix>zx</docker.image.prefix>
         <cloud-alibaba.version>0.2.2.RELEASE</cloud-alibaba.version>
         <lombok.versin>1.16.10</lombok.versin>
+        <spring-boot-starter-web.version>2.2.1.RELEASE</spring-boot-starter-web.version>
     </properties>
 
     <dependencyManagement>
@@ -137,6 +138,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter-web.version}</version>
             </dependency>
             <!-- JWT -->
             <dependency>

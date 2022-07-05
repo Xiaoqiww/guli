@@ -5,11 +5,13 @@ import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.guli.oss.service.OssService;
 import com.guli.oss.utils.ConstantPropertiesUtil;
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.InputStream;
+import java.util.UUID;
 
 @Service
 public class OssServiceImpl implements OssService {
@@ -26,8 +28,12 @@ public class OssServiceImpl implements OssService {
             OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
             //获取上传文件输入流
             InputStream inputStream = file.getInputStream();
-            //上传到oss文件路径和文件名称 /aa/bb/1.jpg
-            String fileName = file.getOriginalFilename();
+            //1.在文件名中加上一个随机唯一值，避免名称重复
+            String s = UUID.randomUUID().toString().replaceAll("-", "");
+            //2.把文件按照日期进行分类
+            String s1 = new DateTime().toString("yyyy/MM/dd");
+            //上传到oss文件名称
+            String fileName =s1+"/"+s+file.getOriginalFilename();
             // 调用oss方法实现上传
             ossClient.putObject(bucketName, fileName, inputStream);
             //关闭ossClient
