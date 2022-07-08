@@ -1,4 +1,4 @@
-package com.guli.eduservice.entity.vo;
+package com.guli.eduservice.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

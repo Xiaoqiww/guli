@@ -5,7 +5,7 @@ import com.atguigu.commonutils.R;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.guli.eduservice.entity.EduTeacher;
-import com.guli.eduservice.entity.vo.TeacherQuery;
+import com.guli.eduservice.vo.TeacherQuery;
 import com.guli.eduservice.service.EduTeacherService;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
